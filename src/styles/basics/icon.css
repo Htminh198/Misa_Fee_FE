@@ -1,0 +1,9 @@
+.td-checktrue-false{
+    background-repeat: no-repeat;
+    padding-left: 52px;
+}
+.icon-checktrue-false{
+    height: 24px;
+    width: 24px;
+    background-image: url(../../assets/ImagesIcons/ic_Check.png);
+}
