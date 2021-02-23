@@ -36,7 +36,7 @@
                 <tbody>
                     <tr v-for="(fee, index) in listFee" :key="index" 
                         v-show="fee.isActive || showFeeInactive"
-                        :class="{'odd-row': index % 2 === 0, 'row-on-select': feeIds[fee.feeID] === true}">
+                        :class="{'odd-row': index % 2 === 1, 'row-on-select': feeIds[fee.feeID] === true}">
                         <td class="selectCol">
                             <input type="checkbox" :id="fee.feeID" v-model="feeIds[fee.feeID]"/>
                             <label :for="fee.feeID"><span></span></label>
@@ -47,9 +47,9 @@
                                 <span v-if="fee.isSystem" class="icon-i" title="Đây là khoản thu mặc định của hệ thống, bạn không thể xóa."></span>
                             </span>
                             <div v-else-if="col.key === 'Price'" class="m-text-right">
-                                {{fee.priceRate}}
+                                {{fee.priceRate }}
                             </div>
-                            <div v-else-if="col.key === 'Period'">
+                            <div v-else-if="col.key === 'period'">
                                 {{fee | periodName}}
                             </div>
                             <div v-else-if="isBool(fee[col.key])" class="cell-center">
@@ -69,8 +69,8 @@
             </table>
         </div>
         <div class="footer">Tổng số: {{listFee.length}} kết quả</div>
-        <FeeDetail v-if="formDetail" @close="closeForm" :mode="formMode" :listFeeGroup="listFeeGroup" :feeId="feeIdChange" @reloadData="loadData"/>
-        <DialogDeleteConfirm v-if="dialogDelete" @close="dialogDelete = false" @reloadData="loadData" :message="messageDelete" :mode="formMode" :listFeeId="listFeeIdDelete"/>
+        <FeeDetail v-if="formDetail" @close="closeForm" :mode="formMode" :listFeeGroup="listFeeGroup" :feeId="feeIdChange" @loadData="loadData"/>
+        <DialogDeleteConfirm v-if="dialogDelete" @close="dialogDelete = false" @loadData="loadData" :message="messageDelete" :mode="formMode" :listFeeId="listFeeIdDelete"/>
     </div>
 </template>
 <script>
@@ -209,7 +209,6 @@ export default {
             axios.get('https://localhost:44307/api/v1/Fee')
                 .then(res => {
                     this.listFee = res.data;
-                    console.log(this.listFee)
                 })
                 .catch(res => {
                     alert(res);
@@ -246,13 +245,13 @@ export default {
     filters: {
         priceRate(fee) {
             var result = "";
-            var price = fee.Price;
+            var price = fee.price;
             var i = 0
             while (price > 0) {
                 if (i !== 0 && i%3==0) {
                     result = '.' + result;
                 }
-                result = (price%10) + result;
+                result = (price%10);
                 price = Math.floor(price/10);
                 ++i;
             }
