@@ -1,14 +1,14 @@
 <template>
     <div id="content">
-        <FeeList />
+        <FeeListItems />
     </div>
 </template>
 <script>
-import FeeList from '../views/planning/FeeList'
+import FeeListItems from '../views/planning/FeeListItems'
 
 export default {
     components: {
-        FeeList
+        FeeListItems
     }
 }
 </script>

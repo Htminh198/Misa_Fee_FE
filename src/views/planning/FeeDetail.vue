@@ -417,7 +417,6 @@ export default {
         .get("https://localhost:44307/api/v1/Fee/" + this.feeId)
         .then((res) => {
           this.fee = res.data;
-          console.log(this.fee);
         })
         .catch((res) => {
           alert(res);

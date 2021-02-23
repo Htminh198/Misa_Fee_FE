@@ -4,7 +4,7 @@
             <div class="menu__tab">Quy trình</div>
             <div class="menu__tab current--tab">Danh sách khoản thu</div>
             <div class="menu__tab">Đăng ký khoản thu</div>
-            <div class="menu__tab">danh sách miễn giảm</div>
+            <div class="menu__tab">Danh sách miễn giảm</div>
         </div>
         <div class="option">
             <div class="option__item float--left">
@@ -15,7 +15,7 @@
                 <button class="m-icon-button icon-delete" @click="btnDeleteOnClick_n" :disabled="!haveRowOnSelect"></button>
             </div>
             <div class="option__item float--right">
-                <button class="m-second-button">Sắp lại thứ tự</button>
+                <button class="m-second-button" @click="btnOderBy">Sắp lại thứ tự</button>
             </div>
             <div class="option__item float--right">
                 <button class="m-button" @click="btnAddOnClick">Thêm mới</button>
@@ -26,8 +26,8 @@
                 <thead>
                     <tr class="odd-row">
                         <th class="selectCol">
-                            <!-- <input type="checkbox" id="0" v-model="selectAllRows"/>
-                            <label for="0"><span></span></label> -->
+                            <input type="checkbox" id="0" v-model="selectAllRows"/>
+                            <label for="0"><span></span></label>
                         </th>
                         <th v-for="col in cols" :key="col.key" :class="col.key">{{col.title}}</th>
                         <th class="optionCol"></th>
@@ -137,7 +137,8 @@ export default {
             feeIdChange: null,
             showFeeInactive: false,
             messageDelete: "",
-            listFeeIdDelete: []
+            listFeeIdDelete: [],
+            listFeeOderBy: []
         }
     },
     components: {
@@ -204,6 +205,22 @@ export default {
             this.dialogDelete = false;
             this.messageDelete = "";
             this.listFeeIdDelete = [];
+        },
+        btnOderBy(){
+            axios.get('https://localhost:44307/api/v1/Fee/GetOderBy')
+                .then(res => {
+                    this.listFee = res.data;
+                })
+                .catch(res => {
+                    alert(res);
+                })
+            axios.get('https://localhost:44307/api/v1/FeeGroup')
+                .then(res => {
+                    this.listFeeGroup = res.data;
+                })
+                .catch(res => {
+                    alert(res);
+                })
         },
         loadData() {
             axios.get('https://localhost:44307/api/v1/Fee')
@@ -348,9 +365,9 @@ export default {
 .table {
     width: calc(100% - 24px);
     height: calc(100% - 40px - 50px - 50px);
-    margin: 0 12px 0 12px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    margin: 0 8px 0 8px;
+    /* overflow-x: auto;
+    overflow-y: hidden; */
 }
 
         .table::-webkit-scrollbar {
