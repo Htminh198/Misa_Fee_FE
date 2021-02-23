@@ -22,6 +22,10 @@
     color: red;
 }
 
+.m-blue {
+    color: #09a1eb;
+}
+
 .m-text-right {
     text-align: right;
 }
@@ -73,6 +77,31 @@
 .icon-delete {
     background: url('../../assets/ImagesIcons/ic_Delete_32.svg') no-repeat center;
 }
-/* table tbody tr .btn-group ( 2n + 1){
 
-} */
+.icon-edit {
+    background: url('../../assets/ImagesIcons/ic_Edit.svg') no-repeat center;
+}
+
+.icon-duplicate {
+    background: url('../../assets/ImagesIcons/ic_Duplicate_24.svg') no-repeat center;
+}
+
+.icon-home {
+    background: url('../../assets/ImagesIcons/home.svg') no-repeat center;
+}
+
+.icon-i {
+    background: url('../../assets/ImagesIcons/ic_Info_20.svg') no-repeat center;
+}
+
+.icon-checkbox-inactive {
+    background: url('../../assets/ImagesIcons/ic_Checkbox_Inactive.svg') no-repeat center;
+}
+
+.icon-checkbox-active {
+    background: url('../../assets/ImagesIcons/ic_Checkbox_Active.svg') no-repeat center;
+}
+
+.icon-check {
+    background: url('../../assets/ImagesIcons/ic_Check.png') no-repeat center;
+}
