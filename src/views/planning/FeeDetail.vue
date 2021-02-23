@@ -366,12 +366,11 @@ export default {
           .then((res) => {
             alert(res.data);
             this.loadData();
-            location.reload();
-            this.saveOnClick();
+            this.setDefaul();
             if (close) this.close();
           })
           .catch((res) => {
-            console.log(res);
+            alert(res.response.data.userMsg);
           });
       } else if (flag && this.mode === "EDIT") {
         axios
@@ -399,10 +398,27 @@ export default {
             this.close();
           })
           .catch((res) => {
-            alert(res);
+            alert(res.response.data.userMsg);
           });
       }
     },
+    setDefaul(){
+      console.log(1)
+        this.fee.feeName= "",
+        this.fee.feeGroupID= null,
+        this.fee.price= null,
+        this.fee.unit= 2,
+        this.fee.applyObject= 3,
+        this.property= null,
+        this.fee.period= "1",
+        this.fee.isApplyRemisson= false,
+        this.fee.isRequire= false,
+        this.fee.allowCreateInvoice= true,
+        this.fee.allowCreateReceipt= true,
+        this.fee.isActive= true,
+        this.fee.isInternal= false,
+        this.fee.isSystem= false
+    }
   },
   directives: {
     focus: {
@@ -419,7 +435,7 @@ export default {
           this.fee = res.data;
         })
         .catch((res) => {
-          alert(res);
+          alert(res.response.data.userMsg);
         });
     }
   },

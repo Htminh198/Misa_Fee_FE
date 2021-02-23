@@ -42,7 +42,7 @@ export default {
                         alert(res.data)
                     })
                     .catch(res => {
-                        alert(res);
+                        alert(res.response.data.userMsg);
                     })
             }
             this.$emit('close');
