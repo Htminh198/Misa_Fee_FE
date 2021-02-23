@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Menu from './components/Menu'
-import Header from './components/Header'
-import Content from './components/Content'
+import Menu from './components/layout/Menu'
+import Header from './components/layout/Header'
+import Content from './components/layout/Content'
 
 export default {
   name: 'App',

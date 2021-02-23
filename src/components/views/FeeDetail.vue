@@ -41,6 +41,7 @@
             <div class="text">Thuộc nhóm khoản thu</div>
             <div class="input">
               <select name="feeGroup" v-model="fee.feeGroupID" class="m-select">
+                
                 <option
                   v-for="(feeGroup, index) in listFeeGroup"
                   :key="index"
@@ -442,118 +443,119 @@ export default {
 };
 </script>
 <style scoped>
+/* @import "../../styles/views/FeeDetail.css"; */
 .modal {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: #cccccc;
-  opacity: 0.6;
-  z-index: 3;
-}
-
-.dialog {
-  position: fixed;
-  z-index: 3;
-  width: calc(1000px - 24px - 24px);
-  height: 600px;
-  top: calc((100vh - 600px) / 2);
-  left: calc((100vw - 1000px) / 2);
-  background-color: #fff;
-  border-radius: 4px;
-  padding-left: 24px;
-  padding-right: 24px;
-  overflow: hidden;
-}
-
-.dialog .dialog__header {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 70px;
-  overflow: hidden;
-}
-
-.dialog .dialog__header .title {
-  font-family: "OpenSans-Bold";
-  font-size: 20px;
-}
-
-.dialog .dialog__header .icon {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.dialog .dialog__content {
-  display: flex;
-  width: 100%;
-  height: calc(100% - 70px - 70px);
-}
-
-.dialog .dialog__content .content__left {
-  flex: 1;
-  padding: 12px 24px 12px 0;
-  height: calc(100% - 24px);
-  border-right: 1px solid #cccccc;
-}
-
-.dialog .dialog__content .content__left .row {
-  width: 100%;
-  height: 66px;
-}
-
-.dialog .dialog__content .content__left .row .text {
-  line-height: 32px;
-}
-
-.dialog .dialog__content .content__left .row .input {
-  display: flex;
-}
-
-.dialog .dialog__content .content__left .row .input label {
-  display: flex;
-  align-items: center;
-  padding: 0 4px 0 4px;
-}
-
-.dialog .dialog__content .content__right {
-  flex: 1;
-  height: calc(100% - 24px);
-  padding: 12px 0 12px 24px;
-}
-
-.dialog .dialog__content .content__right .row {
-  width: 100%;
-  height: 40px;
-  overflow: hidden;
-}
-
-.dialog .dialog__content .content__right .row > div {
-  display: flex;
-  align-items: center;
-}
-
-.dialog .dialog__footer {
-  width: 100%;
-  height: 70px;
-}
-
-.dialog .dialog__footer .footer__item {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-.dialog .dialog__footer .footer__item.float--right {
-  margin-left: 8px;
-}
-.error-required {
-  border: 1px solid red;
-}
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #cccccc;
+    opacity: 0.6;
+    z-index: 3;
+  }
+  
+  .dialog {
+    position: fixed;
+    z-index: 3;
+    width: calc(1000px - 24px - 24px);
+    height: 600px;
+    top: calc((100vh - 600px) / 2);
+    left: calc((100vw - 1000px) / 2);
+    background-color: #fff;
+    border-radius: 4px;
+    padding-left: 24px;
+    padding-right: 24px;
+    overflow: hidden;
+  }
+  
+  .dialog .dialog__header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    overflow: hidden;
+  }
+  
+  .dialog .dialog__header .title {
+    font-family: "OpenSans-Bold";
+    font-size: 20px;
+  }
+  
+  .dialog .dialog__header .icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dialog .dialog__content {
+    display: flex;
+    width: 100%;
+    height: calc(100% - 70px - 70px);
+  }
+  
+  .dialog .dialog__content .content__left {
+    flex: 1;
+    padding: 12px 24px 12px 0;
+    height: calc(100% - 24px);
+    border-right: 1px solid #cccccc;
+  }
+  
+  .dialog .dialog__content .content__left .row {
+    width: 100%;
+    height: 66px;
+  }
+  
+  .dialog .dialog__content .content__left .row .text {
+    line-height: 32px;
+  }
+  
+  .dialog .dialog__content .content__left .row .input {
+    display: flex;
+  }
+  
+  .dialog .dialog__content .content__left .row .input label {
+    display: flex;
+    align-items: center;
+    padding: 0 4px 0 4px;
+  }
+  
+  .dialog .dialog__content .content__right {
+    flex: 1;
+    height: calc(100% - 24px);
+    padding: 12px 0 12px 24px;
+  }
+  
+  .dialog .dialog__content .content__right .row {
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+  }
+  
+  .dialog .dialog__content .content__right .row > div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dialog .dialog__footer {
+    width: 100%;
+    height: 70px;
+  }
+  
+  .dialog .dialog__footer .footer__item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .dialog .dialog__footer .footer__item.float--right {
+    margin-left: 8px;
+  }
+  .error-required {
+    border: 1px solid red;
+  }
 </style>

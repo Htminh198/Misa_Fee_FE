@@ -128,6 +128,7 @@
       @loadData="loadData"
       :message="messageDelete"
       :mode="formMode"
+      :formItems="formItems"
       :listFeeId="listFeeIdDelete"
     />
   </div>
@@ -192,6 +193,7 @@ export default {
       formDetail: false,
       dialogDelete: false,
       formMode: null,
+      formItems: null,
       selectAllRows: false,
       feeIdChange: null,
       showFeeInactive: false,
@@ -256,7 +258,7 @@ export default {
           }
         }
       }
-      this.formMode = "DELETE";
+      this.formMode = "DELETELISTITEM";
       this.messageDelete = "Bạn có chắc chắn muốn xóa những khoản thu đã chọn?";
       this.dialogDelete = true;
     },
@@ -390,208 +392,6 @@ export default {
   },
 };
 </script>
-<style>
-#fee-list {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.menu {
-  display: flex;
-  width: 100%;
-  height: 40px;
-  background-color: #f6f6f6;
-  overflow: hidden;
-}
-
-.menu .menu__tab {
-  height: calc(40px - 3px);
-  padding-left: 20px;
-  padding-right: 20px;
-  color: #cccccc;
-  border-top: 3px solid #e9e9e9;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.menu .menu__tab.current--tab {
-  border-top: 3px solid #0e9d50;
-  color: #0e9d50;
-  background-color: #fff;
-  z-index: 3;
-}
-
-.option {
-  width: calc(100% - 24px);
-  height: 50px;
-  padding: 0px 12px 0px 12px;
-  overflow: hidden;
-}
-
-.option .option__item {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  margin-left: 8px;
-}
-
-.option .option__item.float--left {
-  margin-left: 0;
-}
-
-.table {
-  width: calc(100% - 24px);
-  height: calc(100% - 40px - 50px - 50px);
-  margin: 0 8px 0 8px;
-  /* overflow-x: auto;
-    overflow-y: hidden; */
-}
-
-.table::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  background-color: #e9ebee;
-}
-
-.table::-webkit-scrollbar-thumb {
-  width: 6px;
-  height: 6px;
-  background-color: #bbbbbb;
-}
-
-.table table {
-  width: 100%;
-  min-width: 1700px;
-  height: 100%;
-  border-collapse: collapse;
-  border: 1px solid #e9e9e9;
-}
-
-.table table thead {
-  width: calc(100% - 8px);
-  background-color: #0e9d50;
-}
-
-.table table tbody {
-  display: block;
-  height: calc(100% - 10px);
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.table table tbody::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-  background-color: #e9ebee;
-}
-
-.table table tbody::-webkit-scrollbar-thumb {
-  width: 6px;
-  height: 6px;
-  background-color: #bbbbbb;
-}
-
-.table table tr {
-  width: 100%;
-  display: table;
-  table-layout: fixed;
-  height: 40px;
-}
-
-.table table td,
-.table table th {
-  border: 1px solid #e9e9e9;
-  padding: 0 8px 0 8px;
-}
-
-.table table .selectCol {
-  text-align: center;
-  width: 28px;
-}
-
-.table table .optionCol {
-  width: 72px;
-}
-
-.table table .optionCol .icon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  margin: 0 2px 0 2px;
-}
-
-.table table .odd-row {
-  background-color: #f5f6fa;
-}
-
-.table table .row-on-select {
-  background-color: #cce8ff;
-}
-
-.table table .fee-name {
-  color: #0997eb;
-  cursor: pointer;
-  widows: auto;
-}
-
-.table table .icon-i {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  margin: 0 8px 0 8px;
-}
-
-.table table .feeName {
-  width: 300px;
-}
-
-.table table .icon-checkbox {
-  width: 20px;
-  height: 20px;
-}
-
-.table table .cell-center {
-  display: flex;
-  justify-content: center;
-}
-
-.footer {
-  width: calc(100% - 24px);
-  height: 50px;
-  padding: 0 12px 0 12px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-
-#notification {
-  display: none;
-}
-
-#notification .modal {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background-color: #cccccc;
-  opacity: 0.6;
-  z-index: 3;
-}
-
-#notification .dialog {
-  position: fixed;
-  z-index: 3;
-  width: calc(1000px - 24px - 24px);
-  height: 600px;
-  top: calc((100vh - 600px) / 2);
-  left: calc((100vw - 1000px) / 2);
-  background-color: #fff;
-  border-radius: 4px;
-  padding-left: 24px;
-  padding-right: 24px;
-  overflow: hidden;
-}
+<style scoped>
+@import "../../styles/views/FeeListItems.css";
 </style>
