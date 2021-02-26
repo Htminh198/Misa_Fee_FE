@@ -46,10 +46,9 @@ export default {
       this.$emit("close");
     },
     async deleteListFee() {
-      console.log(2);
       for (let i in this.listFeeId) {
         await axios
-          .delete("https://localhost:44307/api/v1/Fee/" + this.listFeeId[i])
+          .delete(`https://localhost:44307/api/v1/Fee/${this.listFeeId[i]}`)
           .then()
           .catch((res) => {
             alert(res.response.data.userMsg);
@@ -62,9 +61,8 @@ export default {
     },
     async deleteFee() {
       for (let i in this.listFeeId) {
-        console.log(1);
         await axios
-          .delete("https://localhost:44307/api/v1/Fee/" + this.listFeeId[i])
+          .delete(`https://localhost:44307/api/v1/Fee/${this.listFeeId[i]}`)
           .then((res) => {
             alert(res.data);
           })

@@ -404,7 +404,6 @@ export default {
       }
     },
     setDefaul(){
-      console.log(1)
         this.fee.feeName= "",
         this.fee.feeGroupID= null,
         this.fee.price= null,
@@ -431,7 +430,7 @@ export default {
   mounted() {
     if (this.feeId !== null) {
       axios
-        .get("https://localhost:44307/api/v1/Fee/" + this.feeId)
+        .get(`https://localhost:44307/api/v1/Fee/${this.feeId}`)
         .then((res) => {
           this.fee = res.data;
         })
