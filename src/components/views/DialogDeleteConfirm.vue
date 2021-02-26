@@ -51,12 +51,12 @@ export default {
           .delete(`https://localhost:44307/api/v1/Fee/${this.listFeeId[i]}`)
           .then()
           .catch((res) => {
-            alert(res.response.data.userMsg);
+            this.$toaster.error(res.response.data.userMsg, {timeout: 3000})
           });
       }
       this.$emit("close");
       this.$emit("loadData");
-      alert("Xóa thành công");
+      this.$toaster.error("Xóa thành công", {timeout: 3000})
       location.reload();
     },
     async deleteFee() {
@@ -64,10 +64,10 @@ export default {
         await axios
           .delete(`https://localhost:44307/api/v1/Fee/${this.listFeeId[i]}`)
           .then((res) => {
-            alert(res.data);
+            this.$toaster.success(res.data, {timeout: 3000})
           })
           .catch((res) => {
-            alert(res.response.data.userMsg);
+            this.$toaster.error(res.response.data.userMsg, {timeout: 3000})
           });
       }
       this.$emit("close");

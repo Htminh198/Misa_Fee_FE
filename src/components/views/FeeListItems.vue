@@ -276,15 +276,15 @@ export default {
           this.listFee = res.data;
         })
         .catch((res) => {
-          alert(res.response.data.userMsg);
+          this.$toaster.error(res.response.data.userMsg, {timeout: 3000})
         });
       axios
         .get("https://localhost:44307/api/v1/FeeGroup")
         .then((res) => {
           this.listFeeGroup = res.data;
         })
-        .catch((err) => {
-          alert(err.response.data.userMsg);
+        .catch((res) => {
+          this.$toaster.error(res.response.data.userMsg, {timeout: 3000})
         });
     },
     loadData() {
@@ -294,7 +294,7 @@ export default {
           this.listFee = res.data;
         })
         .catch((res) => {
-          alert(res.response.data.userMsg);
+          this.$toaster.error(res.response.data.userMsg, {timeout: 3000})
         });
       axios
         .get("https://localhost:44307/api/v1/FeeGroup")
@@ -302,7 +302,7 @@ export default {
           this.listFeeGroup = res.data;
         })
         .catch((res) => {
-          alert(res.response.data.userMsg);
+          this.$toaster.error(res.response.data.userMsg, {timeout: 3000})
         });
     },
     isBool(val) {

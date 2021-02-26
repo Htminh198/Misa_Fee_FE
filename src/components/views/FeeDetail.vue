@@ -365,13 +365,13 @@ export default {
         axios
           .post("https://localhost:44307/api/v1/Fee", this.fee)
           .then((res) => {
-            alert(res.data);
             this.loadData();
             this.setDefaul();
             if (close) this.close();
+            this.$toaster.success(res.data, {timeout: 3000})
           })
           .catch((res) => {
-            alert(res.response.data.userMsg);
+            this.$toaster.error(res.response.data.userMsg, {timeout: 3000})
           });
       } else if (flag && this.mode === "EDIT") {
         axios
@@ -393,13 +393,12 @@ export default {
             isSystem: this.fee.isSystem,
           })
           .then((res) => {
-            alert(res.data);
             this.loadData();
-            location.reload();
             this.close();
+            this.$toaster.success(res.data, {timeout: 3000})
           })
           .catch((res) => {
-            alert(res.response.data.userMsg);
+            this.$toaster.error(res.response.data.userMsg, {timeout: 3000})
           });
       }
     },
@@ -435,7 +434,7 @@ export default {
           this.fee = res.data;
         })
         .catch((res) => {
-          alert(res.response.data.userMsg);
+          this.$toaster.error(res.response.data.userMsg, {timeout: 3000})
         });
     }
   },
